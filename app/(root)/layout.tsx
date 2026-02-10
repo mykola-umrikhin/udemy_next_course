@@ -1,11 +1,21 @@
+import LeftSidebar from "@/components/navigation/LeftSidebar";
 import NavBar from "@/components/navigation/navbar";
+import RightSidebar from "@/components/navigation/RightSidebar";
 import { ReactNode } from "react";
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <main>
+    <main className="background-light850_dark100 relative">
       <NavBar />
-      {children}
+      <div className="flex">
+        <LeftSidebar />
+
+        <section className="flex-col-1 flex flex-1 px-6 pt-36 pb-6 max-md:pb-14 sm:px-14">
+          <div className="mx-auto w-full max-w-5xl">{children}</div>
+        </section>
+
+        <RightSidebar />
+      </div>
     </main>
   );
 };
