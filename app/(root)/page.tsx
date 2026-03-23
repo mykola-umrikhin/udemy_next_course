@@ -1,3 +1,4 @@
+import QuestionCard from "@/components/cards/QuestionCard";
 import HomeFilter from "@/components/filters/HomeFilter";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
@@ -20,7 +21,12 @@ const questions = [
         name: "javascript",
       },
     ],
-    author: { _id: "1", name: "John Doe" },
+    author: {
+      _id: "1",
+      name: "John Doe",
+      image:
+        "https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001877.png",
+    },
     upvotes: 10,
     answers: 5,
     views: 100,
@@ -37,7 +43,12 @@ const questions = [
         name: "javascript",
       },
     ],
-    author: { _id: "2", name: "Jane Smith" },
+    author: {
+      _id: "2",
+      name: "Jane Smith",
+      image:
+        "https://i.etsystatic.com/56058914/r/il/bfb0f4/6690222060/il_340x270.6690222060_crd6.jpg",
+    },
     upvotes: 5,
     answers: 3,
     views: 50,
@@ -89,7 +100,7 @@ const Home = async ({ searchParams }: SearchParams) => {
 
       <div className="mt-10 flex w-full flex-col gap-6">
         {filteredQuestions.map((question) => (
-          <h1 key={question._id}>{question.title}</h1>
+          <QuestionCard key={question._id} question={question} />
         ))}
       </div>
     </>
